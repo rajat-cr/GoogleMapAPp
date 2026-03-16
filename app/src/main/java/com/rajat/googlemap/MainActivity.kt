@@ -71,11 +71,7 @@ fun GoogleMapScreen(
                 Manifest.permission.ACCESS_COARSE_LOCATION
             ) != PackageManager.PERMISSION_GRANTED
         ) return@LaunchedEffect
-
-        val locationRequest = LocationRequest.Builder(
-            Priority.PRIORITY_HIGH_ACCURACY,
-            2000
-        ).setMaxUpdates(1).build()
+        
 
         fusedLocationProviderClient.lastLocation.addOnSuccessListener { location ->
             location?.let {
